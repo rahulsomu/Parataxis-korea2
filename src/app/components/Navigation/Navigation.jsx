@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { ImageWithFallback } from "../ui/ImageWithFallback";
-import { ArrowUpRight, Menu, Moon, Newspaper, Sun, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Menu, Moon, Newspaper, Sun, X } from "lucide-react";
 import { useTranslation } from "../../context/LanguageProvider";
 import { useTheme } from "../../context/ThemeProvider";
+import logo from '../../../assets/images/korean-logo.webp'
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const { t, isEnglish, toggleLanguage } = useTranslation();
@@ -19,17 +21,16 @@ const Navigation = () => {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div
-            className={`flex items-center gap-3 ${
-              isDayMode ? "bg-white" : "bg-slate-800"
-            } px-4 py-2`}
+            className={`flex items-center gap-3
+              py-2 w-80`}
           >
+            <Link to="/">
             <ImageWithFallback
-              src="https://wimg.mk.co.kr/news/cms/202509/17/news-p.v1.20250917.575a07f52b6e4b5ab904349f55a2d436_P1.jpg"
+              src={logo}
               alt="Parataxis Korea Logo"
-              className={`h-14 w-auto object-contain ${
-                isDayMode ? "" : "invert"
-              }`}
+              className={`h-14 w-auto object-contain ${isDayMode ? 'invert' : ''}`}
             />
+              </Link>
             <div className="sr-only">Parataxis Korea</div>
           </div>
 

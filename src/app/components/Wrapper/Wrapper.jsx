@@ -29,10 +29,7 @@ const Wrapper = () => {
       `}</style>
 
       {/* REAL-TIME TICKER BANNER */}
-      <PriceTracker />
 
-      {/* NAVIGATION */}
-      <Navigation />
 
       {/* MOBILE MENU */}
 
@@ -50,9 +47,6 @@ const Wrapper = () => {
 
       {/* TEAM SECTION */}
       <TeamSection />
-
-      {/* FOOTER */}
-      <FooterSection />
     </div>
   );
 };
