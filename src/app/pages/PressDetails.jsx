@@ -62,10 +62,10 @@ const PressDetails = ({ title }) => {
       const url = isPressPage
         ? dashboardPressGetAllApiUrl(params)
         : isElectronicDisclosurePage
-        ? dashboardElectronicDisclosuresGetAllApiUrl(params)
-        : isWebcastsPage
-        ? dashboardWebcastsGetAllApiUrl(params)
-        : dashboardPublicDisclosuresGetAllApiUrl(params);
+          ? dashboardElectronicDisclosuresGetAllApiUrl(params)
+          : isWebcastsPage
+            ? dashboardWebcastsGetAllApiUrl(params)
+            : dashboardPublicDisclosuresGetAllApiUrl(params);
       const response = await axios.get(url);
       if (response.status === 200) {
         if (response.data) {
@@ -81,8 +81,6 @@ const PressDetails = ({ title }) => {
             data: newData,
             error: null,
           });
-          console.log(newData, "new");
-          console.log(idFromUrl);
 
           // Find and set the filtered data based on title
           const found = newData.find((item) => item.ID == idFromUrl);
@@ -112,8 +110,8 @@ const PressDetails = ({ title }) => {
     const desc = isEnglish
       ? fullDescription
       : koreanDescription
-      ? koreanDescription
-      : fullDescription;
+        ? koreanDescription
+        : fullDescription;
     return desc;
   };
   const handleDropdown = (value) => {
@@ -130,10 +128,10 @@ const PressDetails = ({ title }) => {
         isPressPage
           ? "/press"
           : isElectronicDisclosurePage
-          ? "/electronic-disclosures"
-          : isWebcastsPage
-          ? "/webcasts"
-          : "/public-disclosures"
+            ? "/electronic-disclosures"
+            : isWebcastsPage
+              ? "/webcasts"
+              : "/public-disclosures",
       );
     }
   }, [idFromUrl]);
@@ -172,10 +170,10 @@ const PressDetails = ({ title }) => {
             isPressPage
               ? "/press"
               : isElectronicDisclosurePage
-              ? "/electronic-disclosures"
-              : isWebcastsPage
-              ? "/webcasts"
-              : "/public-disclosures"
+                ? "/electronic-disclosures"
+                : isWebcastsPage
+                  ? "/webcasts"
+                  : "/public-disclosures"
           }
           className={`flex items-center gap-2 mb-4 text-[11px] font-black uppercase tracking-widest ${
             isDayMode
@@ -243,8 +241,8 @@ const PressDetails = ({ title }) => {
                     {isEnglish
                       ? heading
                       : koreanHeading
-                      ? koreanHeading
-                      : heading}
+                        ? koreanHeading
+                        : heading}
                   </h1>
                   {downloadLink ? (
                     <a className="download" href={downloadLink} download>

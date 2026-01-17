@@ -5,7 +5,7 @@ const TranslationContext = createContext();
 export const LanguageProvider = ({ children }) => {
   const hasLanguageSelected = sessionStorage.getItem("language");
   const [isEnglish, setIsEnglish] = useState(
-    hasLanguageSelected ? hasLanguageSelected : true
+    hasLanguageSelected ? hasLanguageSelected : true,
   );
   const t = {
     nav: {
@@ -91,8 +91,8 @@ export const LanguageProvider = ({ children }) => {
       tagline2: isEnglish ? "Institutional Integrity" : "제도적 무결성",
       tagline3: isEnglish ? "Digital Sovereignty" : "디지털 주권",
       copyright: isEnglish
-        ? "© 2025 Parataxis Korea Co., Ltd. All Rights Reserved."
-        : "© 2025 Parataxis Korea Co., Ltd. 모든 권리 보유.",
+        ? "Parataxis Korea Co., Ltd. All Rights Reserved."
+        : "Parataxis Korea Co., Ltd. 모든 권리 보유.",
       privacy: isEnglish ? "Privacy" : "개인정보",
       legal: isEnglish ? "Legal" : "법률",
       audit: isEnglish ? "Audit" : "감사",
@@ -142,6 +142,72 @@ export const LanguageProvider = ({ children }) => {
       description: isEnglish
         ? "Access Parataxis Korea's public disclosures and mandatory filings as required by the Financial Supervisory Service (FSS)."
         : "금융감독원(FSS)에서 요구하는 Parataxis Korea의 공시 및 필수 제출 서류에 액세스하세요.",
+    },
+    teamMembers: {
+      edwardChin: {
+        id: "edwardChin",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/ed.e965575d2ba060295ffe.webp",
+        name: isEnglish ? "Edward Chin" : "에드워드 진",
+        designation: isEnglish
+          ? "Chairman & Inside Director"
+          : "회장 및 사내 이사",
+        bio: isEnglish
+          ? "Edward Chin is the Founder and CEO of Parataxis Holdings, and Co-founder, CEO, and Co-CIO of Parataxis Capital. Prior to Co-Founding Parataxis Capital in 2019, Ed was an investment banker at digital asset merchant bank Galaxy Digital. Before joining the digital asset space, Ed spent over a decade as an investment banker covering the Technology, Media & Telecom sectors, starting his career at Lehman Brothers. Previously, he served as a Captain in the United States Army and was a Fulbright Research Fellow in South Korea. Ed is a graduate of The Wharton School (MBA), Yonsei University (MA) and UC Berkeley (BA)."
+          : "에드워드 진은 파라택시스 홀딩스의 창립자 겸 대표이사(CEO)이며, 파라택시스 캐피탈의 공동 창립자, 대표이사(CEO), 공동 최고투자책임자(CIO)를 맡고 있습니다. 미 육군 대위로 전역 후, UC 버클리 학사, 연세대 석사 및 와튼 스쿨 MBA를 졸업하였습니다. 리먼 브라더스(Lehman Brothers)에서 10년 이상 테크놀로지, 미디어 및 통신 분야의 투자은행가로 활동했으며, 2019년 파라택시스 캐피탈 설립 전에는 디지털 자산 분야의 투자은행인 갤럭시 디지털(Galaxy Digital)에서 근무했습니다.",
+      },
+      andrewKim: {
+        id: "andrewKim",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/andrew2.jpg",
+        name: isEnglish ? "Andrew Kim" : "앤드류 김",
+        designation: isEnglish
+          ? "CEO & Representative Director"
+          : "대표이사 및 등기 이사",
+        bio: isEnglish
+          ? 'Andrew Kim is CEO of Parataxis Korea, the first institutionally backed BTC treasury platform in Korea. Andrew Kim was previously a Partner at Parataxis Capital and Parataxis Holdings (collectively, "Parataxis"), a US based digital asset investment firm. Prior to joining Parataxis, Andrew was a partner at a family office, managing digital asset trading and mining infrastructure investments. Before entering the digital asset space, Andrew held an operator role at AuditBoard ($3 billion+ private equity exit), helping scale the business from $10 million in revenue to $100 million in revenue. Prior to his operating role, Andrew was a research analyst at Ares Management, a global alternative asset manager with over $500 billion in AUM, and an investment banker at Credit Suisse and Jefferies. Andrew is a graduate of New York University (BS, Finance).'
+          : "국내 최초 기관 투자 비트코인 트레저리 플랫폼인 파라택시스 코리아의 대표이사(CEO)앤드류 김은 미국 기반 디지털 자산 투자회사인 파라택시스 캐피탈 및 파라택시스 홀딩스의 파트너를 역임했습니다. 파라택시스 합류 전에는 패밀리 오피스에서 디지털 자산 거래 및 채굴 인프라 투자를 담당했습니다. 디지털 자산 분야 입문 전에는 오딧보드(AuditBoard)에서 운영 역할을 맡아 연 매출 1,000만 달러에서 1억 달러로 성장시켰고(오딧보드는 30억 달러 이상의 금액에 사모펀드에 인수), 아레스 매니지먼트(Ares Management)의 분석가, 운용자산(AUM) 5,000억 달러 이상 보유한 글로벌 대체자산운용사인 Credit Suisse and Jefferies의 투자은행가로 활동했습니다. 앤드류 김은 뉴욕대 금융학 학사 졸업자입니다.",
+      },
+      jamesLee: {
+        id: "jamesLee",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/james.42dee4f7382d9663d70c.webp",
+        name: isEnglish ? "James Lee" : "이정규",
+        designation: isEnglish ? "Inside Director" : "사내 이사",
+        bio: isEnglish
+          ? "James Lee is a serial entrepreneur who most recently founded Bridge Biotherapeutics in 2015, and took the company public in 2019. He previously founded Rexbio Inc, a biotech focused on therapeutics and diagnostics for the treatment of pancreatic cancer. Prior to Rexbio, James co-founded CrystalGenomics a KOSDAQ listed biotech firm focused on the treatment of arthritis. Prior to being an entrepreneur, James held several roles including Deputy GM at LG Life Sciences. James is a graduate of Seoul National University (BS, Chemistry and MS, Protein Biochemistry)."
+          : "2015년 브릿지바이오테라퓨틱스를 설립해 2019년 상장까지 이끈 이정규 사내이사는 서울대 화학 학사와 석사 학위를 보유하고 있습니다. LG생명과학 연구 및 사업개발을 포함한 여러 직책을 역임했으며, 그 후 관절염 치료 전문 코스닥 상장 바이오텍 기업인 크리스탈지노믹스(CrystalGenomics)의 공동 설립자이자, 췌장암 치료에 주력한 렉스바이오(Rexbio)를 설립자입니다. ",
+      },
+      joonKeeHong: {
+        id: "joonKeeHong",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/joonkee.5869a05f4ec239a605c9.webp",
+        name: isEnglish ? "Joonkee Hong" : "홍준기",
+        designation: isEnglish ? "Outside Director" : "사외 이사",
+        bio: isEnglish
+          ? 'Joonkee leads Vogo Fund Labs, which serves as the innovation lab of Vogo Fund Asset Management, a leading private alternative asset manager with approximately $9 billion in assets under management. Before Vogo Fund, he was Head of Korea and Asia for Cumberland DRW, a global digital assets trading firm. Joonkee offers prior board experience, having served as an independent board director of KakaoBank. He is also currently an auditor for Hashed Ventures. Prior to his digital assets career, he was Korea country head for UBS Group, Asia Head of Global Finance at Nomura, and Asia Head of Global Finance at Lehman Brothers. Joonkee has also served in various economic and policy advisory roles for government offices such as the President Office ("Blue House"), MoEF (Ministry of Economy and Finance), FSS (Financial Supervisory Service) and Bank of Korea (the central bank). Joonkee is a graduate of MIT (SB and SM in engineering, and MBA).'
+          : "홍준기는 약 90억 달러 규모의 자산을 운용하는 사모 대체자산운용사인 보고펀드자산운용의 혁신 연구소, 보고펀드랩스(Vogo Fund Labs)를 이끌고 있으며, 해시드 벤처스(Hashed Ventures)의 감사위원으로도 활동하고 있습니다. MIT에서 공학 학사, 석사 및 MBA를 취득한 후, 뉴욕과 홍콩의 월스트리트 금융기관에서 파생상품과 자본시장 분야에서 오랜 경험을 쌓았습니다. 과거 Cumberland DRW 한국 및 아시아 대표, UBS 그룹 한국 총괄 대표, 카카오뱅크 사외이사, 청와대를 비롯한 정부 주요 기관(한국은행, 금융위원회 및 기획재정부) 에 경제 정책 자문을 수행하는 등 금융 산업 발전에 기여했습니다.",
+      },
+      anthonyChoi: {
+        id: "anthonyChoi",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/anthony.7034bf6c6dbdce431edc.webp",
+        name: isEnglish ? "Anthony Choi" : "최충인",
+        designation: isEnglish ? "Outside Director" : "사외 이사",
+        bio: isEnglish
+          ? "Anthony is a Senior Foreign Attorney at Shin & Kim with extensive experienced in cross-border M&A transactions and capital raising. His specialty includes advising global private equity and investment firms in domestic investment in Korea; Given his bicultural and bilingual differentiator Anthony has a unique advantage in cross-border transactions. Anthony was previously and attorney at Yulchon LLC, Kim & Chang, Simpson Thacher & Bartlett LLP, and Asiana Airlines Inc. Anthony is a seasoned board member serving as outside director of  TEST TECH Co., Ltd, NOROO Paint & Coatings Co., Ltd, KISG (Korea Institute for Shared Growth), and Monalisa Co., Ltd. Anthony is a graduate of Georgetown University Law Center (JD, cum laude) and Seoul National University (BA)."
+          : "최충인은 법무법인 세종(Shin&Kim)의 선임 외국인 변호사로서, 크로스보더 M&A 거래와 자본 조달 분야에 많은 경험을 보유하고 있습니다. 영미권에 대한 뛰어난 이해와 언어 실력을 바탕으로 글로벌 사모펀드와 투자회사의 한국 내 투자 자문의 전문성으로 크로스보더 딜에 독보적인 경쟁력을 가지고 있습니다.   . 서울대와 조지타운 로스쿨(JD, 우등 졸업) 졸업 후 율촌,  김앤장, 심슨 대처 & 바틀렛(Simpson Thacher & Bartlett LLP), 아시아나항공에서 근무했습니다. ㈜TEST TECH, ㈜노루페인트, 한국상생연구원(KISG), ㈜모나리자에서 사외이사로 역임하였습니다.",
+      },
+      hyunIlHwang: {
+        id: "hyunIlHwang",
+        image:
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/hyunil.75d850fd5952e74eba2a.webp",
+        name: isEnglish ? "Hyun-il Hwang" : "황현일",
+        designation: isEnglish ? "Statutory Auditor" : "감사",
+        bio: isEnglish
+          ? "Hyun-il Hwang is a Partner at Shin & Kim, with extensive experience in capital markets and securities regulation. Prior to joining Shin & Kim, he was an officer at the Capital Market Investigation Unit of the Financial Services Commission (FSC). Prior to joining the FSC, he was at Samsung Securities. Hyun-il currently serves as Vice President of the Council of Financial Lawyers of the Korean Bar Association, an auditor of the Korea Fintech Industry Association, and a member of the Korea Exchange's Examination Committee for Listing on KOSDAQ Market. Hyun-il is a graduate of Sogang Law School (JD) and Korea University (BA, Politics)"
+          : "황현일은 법무법인 세종(Shin&Kim)의 파트너로 자본시장과 증권 규제 분야 전문가입니다. 고려대 정치외교학과를 졸업하고 서강대 법학전문대학원을 마쳤으며, 삼성증권에 재직 및 금융위원회 자본시장조사단 사무관으로 재직하였습니다. 현재 대한변호사협회 금융변호사회 부회장, 한국핀테크산업협회 감사, 코스닥시장 상장심사위원회 위원으로도 활발히 활동 중입니다.",
+      },
     },
   };
 
