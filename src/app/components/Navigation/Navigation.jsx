@@ -28,6 +28,9 @@ const Navigation = () => {
     } else {
       window.location.href = `/#${section}`;
     }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
   };
   return (
     <>
@@ -76,6 +79,7 @@ const Navigation = () => {
             >
               {t.nav.strategy}
             </Link>
+
             <Link
               to="/#investors"
               onClick={() => handleScroll("investors")}
@@ -146,28 +150,85 @@ const Navigation = () => {
         </div>
       </nav>
       {isMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-white p-10 lg:hidden">
+        <div
+          className={`fixed inset-0 z-[100] p-10 lg:hidden ${isDayMode ? "bg-white" : "bg-slate-900"}`}
+        >
           <div className="flex justify-end mb-12">
             <button onClick={() => setIsMenuOpen(false)}>
-              <X size={32} />
+              <X
+                size={32}
+                className={isDayMode ? "text-black" : "text-white"}
+              />
             </button>
           </div>
           <div className="flex flex-col gap-8 text-3xl font-black uppercase tracking-tighter">
-            <a href="#pillars" onClick={() => setIsMenuOpen(false)}>
-              Strategy
-            </a>
-            <a href="#investors" onClick={() => setIsMenuOpen(false)}>
-              Investors
-            </a>
-            <a href="#team" onClick={() => setIsMenuOpen(false)}>
-              Team
-            </a>
-            <a href="#" className="text-orange-600">
-              Media Center
-            </a>
-            <a href="#" className="text-orange-600">
-              Earnings
-            </a>
+            <Link
+              to="/#media"
+              onClick={() => handleScroll("media")}
+              className={`${
+                isDayMode ? "text-black" : "text-white"
+              } transition-colors`}
+            >
+              {t.nav.media}
+            </Link>
+            <Link
+              to="/#pillars"
+              onClick={() => handleScroll("pillars")}
+              className={`${
+                isDayMode ? "text-black" : "text-white"
+              } transition-colors`}
+            >
+              {t.nav.strategy}
+            </Link>
+
+            <Link
+              to="/#investors"
+              onClick={() => handleScroll("investors")}
+              className={`${
+                isDayMode ? "text-black" : "text-white"
+              } transition-colors`}
+            >
+              {t.nav.investors}
+            </Link>
+            <Link
+              to="/#team"
+              onClick={() => handleScroll("team")}
+              className={`${
+                isDayMode ? "text-black" : "text-white"
+              } transition-colors`}
+            >
+              {t.nav.team}
+            </Link>
+            <div className="flex items-center gap-6">
+              <button
+                onClick={toggleTheme}
+                className={`flex items-center justify-center p-2 rounded-full w-8 h-8 ${
+                  isDayMode
+                    ? "bg-slate-100 text-slate-900 hover:bg-slate-900 hover:text-white"
+                    : "bg-slate-700 text-slate-200 hover:bg-white hover:text-slate-900"
+                } transition-all`}
+                aria-label={
+                  isDayMode ? "Switch to night mode" : "Switch to day mode"
+                }
+              >
+                {isDayMode ? <Sun size={14} /> : <Moon size={14} />}
+              </button>
+
+              {/* KOREAN | ENGLISH Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className={`flex items-center justify-center p-2 rounded-full w-8 h-8 ${
+                  isDayMode
+                    ? "bg-slate-100 text-slate-900 hover:bg-slate-900 hover:text-white"
+                    : "bg-slate-700 text-slate-200 hover:bg-white hover:text-slate-900"
+                } transition-all text-[10px] font-black`}
+                aria-label={
+                  isEnglish ? "Switch to Korean" : "Switch to English"
+                }
+              >
+                {isEnglish ? "KR" : "EN"}
+              </button>
+            </div>
           </div>
         </div>
       )}
