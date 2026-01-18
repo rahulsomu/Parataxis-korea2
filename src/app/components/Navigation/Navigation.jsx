@@ -142,10 +142,14 @@ const Navigation = () => {
           </div>
 
           <button
-            className="lg:hidden"
+            className={`lg:hidden`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? (
+              <X className={isDayMode ? "text-black" : "text-white"} />
+            ) : (
+              <Menu className={isDayMode ? "text-black" : "text-white"} />
+            )}
           </button>
         </div>
       </nav>
