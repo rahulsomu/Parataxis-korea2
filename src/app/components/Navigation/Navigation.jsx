@@ -1,15 +1,34 @@
 import React, { useState } from "react";
 import { ImageWithFallback } from "../ui/ImageWithFallback";
-import { ArrowLeft, ArrowUpRight, Menu, Moon, Newspaper, Sun, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Menu,
+  Moon,
+  Newspaper,
+  Sun,
+  X,
+} from "lucide-react";
 import { useTranslation } from "../../context/LanguageProvider";
 import { useTheme } from "../../context/ThemeProvider";
-import logo from '../../../assets/images/korean-logo.webp'
+import logo from "../../../assets/images/korean-logo.webp";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const { t, isEnglish, toggleLanguage } = useTranslation();
   const { isDayMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleScroll = (section) => {
+    if (window.location.pathname === "/") {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = `/#${section}`;
+    }
+  };
   return (
     <>
       <nav
@@ -25,12 +44,12 @@ const Navigation = () => {
               py-2 w-80`}
           >
             <Link to="/">
-            <ImageWithFallback
-              src={logo}
-              alt="Parataxis Korea Logo"
-              className={`h-14 w-auto object-contain ${isDayMode ? 'invert' : ''}`}
-            />
-              </Link>
+              <ImageWithFallback
+                src={logo}
+                alt="Parataxis Korea Logo"
+                className={`h-14 w-auto object-contain ${isDayMode ? "invert" : ""}`}
+              />
+            </Link>
             <div className="sr-only">Parataxis Korea</div>
           </div>
 
@@ -39,39 +58,42 @@ const Navigation = () => {
               isDayMode ? "text-slate-500" : "text-slate-400"
             }`}
           >
-            <a
-              href="#media"
+            <Link
+              to="/#media"
+              onClick={() => handleScroll("media")}
               className={`${
                 isDayMode ? "hover:text-black" : "hover:text-white"
               } transition-colors`}
             >
               {t.nav.media}
-            </a>
-            <a
-              href="#pillars"
+            </Link>
+            <Link
+              to="/#pillars"
+              onClick={() => handleScroll("pillars")}
               className={`${
                 isDayMode ? "hover:text-black" : "hover:text-white"
               } transition-colors`}
             >
               {t.nav.strategy}
-            </a>
-            <a
-              href="#investors"
+            </Link>
+            <Link
+              to="/#investors"
+              onClick={() => handleScroll("investors")}
               className={`${
                 isDayMode ? "hover:text-black" : "hover:text-white"
               } transition-colors`}
             >
               {t.nav.investors}
-            </a>
-            <a
-              href="#team"
+            </Link>
+            <Link
+              to="/#team"
+              onClick={() => handleScroll("team")}
               className={`${
                 isDayMode ? "hover:text-black" : "hover:text-white"
               } transition-colors`}
             >
               {t.nav.team}
-            </a>
-
+            </Link>
             {/* DAY | NIGHT Toggle */}
             <button
               onClick={toggleTheme}

@@ -1,18 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Press from "../pages/press/Press";
-// import Layout from "./Layout";
-// import HomePage from "../pages/homepage/HomePage";
-// import PressDetails from "../pages/pressDetails/PressDetails";
 import Media from "./pages/Media";
-// import MediaDetails from "../pages/mediaDetails/MediaDetails";
-// import Webcasts from "../pages/webcasts/Webcasts";
-// import WebcastsDetails from "../pages/webcastsDetails/WebcastsDetails";
-import App from "./App";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Layout from "./Layout";
 import Press from "./pages/Press";
 import PressDetails from "./pages/PressDetails";
+import Admin from "./pages/admin/Admin";
+import Dashboard from "./pages/dashboard/Dashboard";
+import DashboardList from "./pages/dashboard/DashboardList";
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 
 const AppRoutes = () => {
   return (
@@ -53,6 +49,29 @@ const AppRoutes = () => {
             path="/webcasts-details"
             element={<PressDetails title={"Webcasts and Presentations"} />}
           />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard/press"
+            element={<DashboardList heading={"News"} />}
+          />
+          <Route
+            path="/dashboard/public-disclosures"
+            element={<DashboardList heading={"Public FSC Disclosures"} />}
+          />
+          <Route
+            path="/dashboard/electronic-disclosures"
+            element={<DashboardList heading={"Electronic Disclosures"} />}
+          />
+          <Route
+            path="/dashboard/webcasts"
+            element={<DashboardList heading={"Webcasts and Presentations"} />}
+          />
+          <Route
+            path="/dashboard/media"
+            element={<DashboardList heading={"Media"} />}
+          />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

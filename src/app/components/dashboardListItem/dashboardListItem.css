@@ -1,0 +1,122 @@
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  transition: 0.3s ease;
+  margin-bottom: 20px;
+  position: relative;
+  /* background-color: #eeeeee07; */
+  border-bottom: none;
+  /* border: 1px solid #252c42; */
+}
+
+.buttons {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.add-record-btn.delete {
+  background: rgb(220 45 45);
+}
+
+.list-item-detail {
+  display: flex;
+  gap: 10px;
+}
+
+.list-item:hover {
+  background-color: #eeeeee09;
+}
+
+.list-item span {
+  font-size: 15px;
+  color: #fff;
+}
+
+.list-item p {
+  color: #8fafc3;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.list-item p:hover {
+  color: #0093a0;
+}
+
+.list-item a,
+.list-item-detail a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #0093a0;
+  margin-top: 15px;
+}
+
+.list-item a:hover {
+  color: #a3a3a3;
+  text-decoration: underline;
+}
+
+.press-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-modal {
+  position: relative;
+  width: 100%;
+  height: max-content;
+}
+
+.delete-modal p {
+  width: 100%;
+  text-align: center;
+}
+
+.delete-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .press-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .list-item {
+    padding: 10px;
+    background-color: #eeeeee07;
+    border-bottom: none;
+    border: 1px solid #252c42;
+  }
+
+  .list-item p {
+    font-size: 14px;
+  }
+
+  .list-item a {
+    margin-top: 10px;
+  }
+
+  .add-record-btn {
+    padding: 10px;
+  }
+
+  .buttons {
+    position: unset;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

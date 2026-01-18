@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "../../context/ThemeProvider";
-import PriceTracker from "../PriceTracker/PriceTracker";
-import Navigation from "../Navigation/Navigation";
 import HeroSection from "../HeroSection/HeroSection";
 import PillarsSection from "../Pillars/PillarsSection";
 import VideoCarouselSection from "../VideoSection/VideoCarouselSection";
 import InvestorRelationMedia from "../InvesterRelationMedia/InvestorRelationMedia";
 import TeamSection from "../Team/TeamSection";
-import FooterSection from "../Footer/FooterSection";
+import { useLocation } from "react-router-dom";
 
 const Wrapper = () => {
   const { isDayMode } = useTheme();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   return (
     <div
       className={`min-h-screen ${
@@ -29,7 +36,6 @@ const Wrapper = () => {
       `}</style>
 
       {/* REAL-TIME TICKER BANNER */}
-
 
       {/* MOBILE MENU */}
 
