@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "../../context/LanguageProvider";
 import { useTheme } from "../../context/ThemeProvider";
 import { sheetUrl } from "../../../constants";
-import { decode } from "he";
+import { htmlDecoder } from "../../utils/utils";
 
 const HeroSection = () => {
   const { t, isEnglish } = useTranslation();
@@ -17,10 +17,6 @@ const HeroSection = () => {
       ?.replace(/\"\"/g, '"') // fix double quotes
       .replace(/^"|"$/g, ""); // remove wrapping quotes
   }
-  const htmlDecoder = (htmlString) => {
-    const decodedHtml = decode(htmlString);
-    return decodedHtml;
-  };
   const fetchBannerText = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -66,47 +62,47 @@ const HeroSection = () => {
     fetchBannerText();
   }, []);
   return (
-    <section className="relative pt-6 pb-32 overflow-hidden">
+    <section className="relative pt-2 pb-32 overflow-hidden md:pt-6">
+      {/* Editable Announcement Banner */}
+      {!loading &&
+        !error &&
+        data &&
+        data.bannerText &&
+        (isEnglish ? (
+          <div
+            className={`w-full flex justify-center items-center py-3 mb-4 ${
+              isDayMode ? "bg-black/60" : "bg-black"
+            } backdrop-blur-sm`}
+          >
+            <div
+              className={`text-center whitespace-nowrap text-sm md:text-base font-bold ${
+                isDayMode ? "text-white" : "text-white"
+              }`}
+              dangerouslySetInnerHTML={{
+                __html: sanitizeSheetHTML(data.bannerText),
+              }}
+            />
+          </div>
+        ) : (
+          <div
+            className={`w-full flex justify-center items-center py-3 mb-4 ${
+              isDayMode ? "bg-black/60" : "bg-black"
+            } backdrop-blur-sm`}
+          >
+            <div
+              className={`text-center whitespace-nowrap text-sm md:text-base font-bold ${
+                isDayMode ? "text-white" : "text-white"
+              }`}
+              dangerouslySetInnerHTML={{
+                __html: sanitizeSheetHTML(
+                  data.koreanBannerText || data.bannerText,
+                ),
+              }}
+            />
+          </div>
+        ))}
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-7">
-          {/* Editable Announcement Banner */}
-          {!loading &&
-            !error &&
-            data &&
-            data.bannerText &&
-            (isEnglish ? (
-              <div
-                className={`w-full flex justify-center items-center py-0.5 mb-1 ${
-                  isDayMode ? "bg-white/30" : "bg-black/30"
-                } backdrop-blur-sm`}
-              >
-                <div
-                  className={`text-center whitespace-nowrap text-sm md:text-base font-bold ${
-                    isDayMode ? "text-slate-900" : "text-white"
-                  }`}
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizeSheetHTML(data.bannerText),
-                  }}
-                />
-              </div>
-            ) : (
-              <div
-                className={`w-full flex justify-center items-center py-0.5 mb-1 ${
-                  isDayMode ? "bg-white/30" : "bg-black/30"
-                } backdrop-blur-sm`}
-              >
-                <div
-                  className={`text-center whitespace-nowrap text-sm md:text-base font-bold ${
-                    isDayMode ? "text-slate-900" : "text-white"
-                  }`}
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizeSheetHTML(
-                      data.koreanBannerText || data.bannerText
-                    ),
-                  }}
-                />
-              </div>
-            ))}
           <div
             className={`inline-block px-4 py-1.5 ${
               isDayMode

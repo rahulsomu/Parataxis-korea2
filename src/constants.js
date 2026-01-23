@@ -254,3 +254,5 @@ export const generateSignedUrl = `${API_BASE_URL}/DocumentsStorage/generate-uplo
 export const editorApiKey = "r62bd3abd01wts5ledkwv0i9tnsl1mv3i76xlu8lhcctnomf";
 export const sheetUrl =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RNI3a1w4F2-wwDS6r5t9NNkwSJCODVmo15zi3t9s5yMN9gJ7gdj-P2lpTh8GkngRglzTRZU1PdiZ/pub?gid=1874007269&output=csv";
+export const priceSheetUrl =
+  "https://docs.google.com/spreadsheets/d/1OX5MbGcR8xGxCRH2s6_g45fpx1-vDDsdL84bOdfJZsc/gviz/tq?tqx=out:json";
